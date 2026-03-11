@@ -1,0 +1,65 @@
+nav {
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;   
+    height: 64px;
+}
+
+nav a { 
+    text-decoration: none; 
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center; 
+    gap: 10px;            
+}
+
+.nav-logo img {
+    height: 60px; 
+    width: auto;  
+    align-items: center;
+}
+
+#nav-logo {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--naranja);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+nav ul li a {
+    color: var(--gris-texto);
+    font-weight: 600;
+    transition: color 0.3s ease;
+    font-size: 14px;
+}
+
+nav ul li a:hover {
+    color: var(--verde);
+}
+
+#btn-dona {
+    background: var(--naranja); 
+    color: white; 
+    border: none;
+    padding: 10px 20px; 
+    border-radius: 24px; 
+    font-family: var(--font);
+    font-weight: 700; 
+    font-size: 0.9rem; 
+    cursor: pointer;
+    transition: background .2s, transform .15s;
+}
+
+#btn-dona:hover { 
+    background: #d45a0f; 
+    transform: translateY(-1px); 
+}

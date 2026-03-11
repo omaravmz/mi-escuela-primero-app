@@ -1,0 +1,238 @@
+.catalog-hero {
+    background-color: var(--verde);
+    color: var(--blanco);
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.catalog-titulo {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.catalogo-subtitulo {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.filtros-bar {
+    background: var(--blanco);
+    border-bottom: 3px solid var(--verde);
+    padding: 24px 40px;
+    position: sticky;  
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.filtros-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.filtro-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    min-width: 160px;
+}
+
+.filtro-grupo label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--gris-texto);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.filtro-grupo input,
+.filtro-grupo select {
+    padding: 10px 14px;
+    border: 1.5px solid #d0d0d0;
+    border-radius: 8px;
+    font-family: var(--font);
+    font-size: 0.88rem;
+    color: var(--gris-texto);
+    background: var(--blanco);
+    transition: border-color 0.2s;
+}
+
+.filtro-grupo input:focus,
+.filtro-grupo select:focus {
+    outline: none;
+    border-color: var(--verde);
+}
+
+.btn-limpiar {
+    background: transparent;
+    border: 1.5px solid #d0d0d0;
+    color: var(--gris-texto);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-family: var(--font);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s;
+    white-space: nowrap;
+}
+
+.btn-limpiar:hover {
+    border-color: var(--naranja);
+    color: var(--naranja);
+}
+
+.catalogo-resultados {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.resultados-header {
+    margin-bottom: 24px;
+}
+
+.resultados-count {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #888;
+}
+
+.resultados-count span {
+    color: var(--verde);
+    font-weight: 700;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.card {
+    background: var(--blanco);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+    transition: transform 0.25s, box-shadow 0.25s;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.card-img {
+    height: 160px;
+    background-color: var(--verde-claro);
+}
+
+.card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.card-categoria {
+    display: inline-block;
+    background: var(--verde-claro);
+    color: var(--verde);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: fit-content;
+}
+
+.card-nombre {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--azul);
+    margin-top: 4px;
+}
+
+.card-municipio {
+    font-size: 0.8rem;
+    color: #888;
+    font-weight: 600;
+}
+
+.card-descripcion {
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.6;
+    overflow: hidden;
+}
+
+.btn-ver {
+    background: var(--verde);
+    color: var(--blanco);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-family: var(--font);
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s, transform 0.15s;
+    width: fit-content;
+}
+
+.btn-ver:hover {
+    background: var(--verde-oscuro);
+    transform: translateY(-1px);
+}
+
+
+
+.sin-resultados {
+    text-align: center;
+    padding: 60px 20px;
+    color: #aaa;
+}
+
+.sin-resultados p {
+    font-size: 1rem;
+    margin-top: 12px;
+}
+
+
+
+@media (max-width: 900px) {
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .catalogo-hero {
+        padding: 40px 20px;
+    }
+
+    .catalogo-titulo {
+        font-size: 1.8rem;
+    }
+
+    .filtros-bar {
+        padding: 20px;
+        position: static; /* En móvil no se queda fija */
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+}
