@@ -2,23 +2,23 @@ nav {
     padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
-    align-items: center;   
+    align-items: center;
     height: 64px;
 }
 
-nav a { 
-    text-decoration: none; 
+nav a {
+    text-decoration: none;
 }
 
 .nav-logo {
     display: flex;
-    align-items: center; 
-    gap: 10px;            
+    align-items: center;
+    gap: 10px;
 }
 
 .nav-logo img {
-    height: 60px; 
-    width: auto;  
+    height: 60px;
+    width: auto;
     align-items: center;
 }
 
@@ -47,19 +47,77 @@ nav ul li a:hover {
 }
 
 #btn-dona {
-    background: var(--naranja); 
-    color: white; 
+    background: var(--naranja);
+    color: white;
     border: none;
-    padding: 10px 20px; 
-    border-radius: 24px; 
+    padding: 10px 20px;
+    border-radius: 24px;
     font-family: var(--font);
-    font-weight: 700; 
-    font-size: 0.9rem; 
+    font-weight: 700;
+    font-size: 0.9rem;
     cursor: pointer;
     transition: background .2s, transform .15s;
 }
 
-#btn-dona:hover { 
-    background: #d45a0f; 
-    transform: translateY(-1px); 
+#btn-dona:hover {
+    background: #d45a0f;
+    transform: translateY(-1px);
+}
+
+
+@media (max-width: 768px) {
+
+    nav {
+        position: relative;
+        flex-wrap: wrap;
+        padding-bottom: 70px;
+    }
+
+    .nav-display {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--gris-texto);
+        padding: 4px 8px;
+        z-index: 100;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        background: white;
+        padding: 16px 24px;
+        gap: 16px;
+        border-top: 2px solid var(--verde);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+    }
+
+    .nav-links.nav-abierto {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links li a {
+        font-size: 1rem;
+    }
+
+    #btn-dona {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (min-width: 769px) {
+    .nav-display {
+        display: none;
+    }
 }

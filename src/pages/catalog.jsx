@@ -43,7 +43,7 @@ function Catalog() {
 
             <div className="filtro-grupo">
               <label htmlFor="buscar">Buscar escuela</label>
-              <input type="text" id="buscar" placeholder="Nombre de la escuela..." value={busqueda} onChange={(e) => setBusqueda(e.target.value)}/>
+              <input type="text" id="buscar" placeholder="Nombre de la escuela..." value={busqueda} onChange={(e) => setBusqueda(e.target.value)} />
             </div>
 
             <div className="filtro-grupo">
@@ -68,7 +68,9 @@ function Catalog() {
               </select>
             </div>
 
-            <button className="btn-limpiar">Limpiar filtros</button>
+            <button className="btn-limpiar" onClick={limpiarFiltros}>
+              Limpiar filtros
+            </button>
 
           </div>
         </section>

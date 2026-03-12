@@ -23,7 +23,7 @@
     background: var(--blanco);
     border-bottom: 3px solid var(--verde);
     padding: 24px 40px;
-    position: sticky;  
+    position: sticky;
     top: 0;
     z-index: 10;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
@@ -229,7 +229,7 @@
 
     .filtros-bar {
         padding: 20px;
-        position: static; /* En móvil no se queda fija */
+        position: static;
     }
 
     .cards-grid {

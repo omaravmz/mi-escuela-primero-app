@@ -255,3 +255,92 @@
     border-radius: 12px;
     overflow: hidden;
 }
+
+@media (max-width: 900px) {
+    .hero {
+        height: auto;
+        padding: 60px 20px;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero-info {
+        text-align: center;
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .hero-ctas {
+        justify-content: center;
+    }
+
+    .stats-inner {
+        gap: 30px;
+        padding: 0 20px;
+    }
+
+    .sobre-inner {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .sobre-img-wrap {
+        order: -1;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .hero-info h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-info p {
+        font-size: 1rem;
+    }
+
+    .hero-ctas {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .stats-inner {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        padding: 0 16px;
+    }
+
+    .stats-inner .stat-item:first-child {
+        grid-column: 1 / -1;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 12px;
+    }
+
+    .como-funciona {
+        padding: 60px 20px;
+    }
+
+    .steps {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .step {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .sobre {
+        padding: 60px 20px;
+    }
+
+    .sobre-values {
+        grid-template-columns: 1fr;
+    }
+}
