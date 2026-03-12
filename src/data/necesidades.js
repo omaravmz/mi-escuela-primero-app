@@ -1,5 +1,4 @@
 // src/data/necesidades.js
-
 const necesidades = [
   {
     id: 1,
@@ -11,6 +10,14 @@ const necesidades = [
     cantidad: 5,
     unidad: "Piezas",
     estado: "Aun no cubierto",
+    prioridad: "Alta",
+    progreso: 20,
+    beneficiarios: 150,
+    imagenPrincipal: "https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=1000",
+    galeria: [
+      "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80",
+      "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80"
+    ],
     descripcion: "La escuela necesita pizarrones nuevos para sus salones ya que los actuales están en mal estado y dificultan el aprendizaje."
   },
   {
@@ -23,7 +30,12 @@ const necesidades = [
     cantidad: 3,
     unidad: "Piezas",
     estado: "Aun no cubierto",
-    descripcion: "Se requieren materiales para dar mantenimiento y pintar las instalaciones de la escuela."
+    prioridad: "Baja",
+    progreso: 0,
+    beneficiarios: 280,
+    imagenPrincipal: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1000",
+    galeria: [],
+    descripcion: "Se requieren materiales para dar mantenimiento y pintar las instalaciones de la escuela para un entorno más digno."
   },
   {
     id: 3,
@@ -35,6 +47,11 @@ const necesidades = [
     cantidad: 3,
     unidad: "Piezas",
     estado: "Aun no cubierto",
+    prioridad: "Alta",
+    progreso: 10,
+    beneficiarios: 90,
+    imagenPrincipal: "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=1000",
+    galeria: ["https://images.unsplash.com/photo-1571260899304-425eee4c7efc?q=80"],
     descripcion: "La escuela necesita mesas tipo picnic para que los alumnos puedan tomar sus alimentos en condiciones dignas."
   },
   {
@@ -47,7 +64,12 @@ const necesidades = [
     cantidad: 12,
     unidad: "Horas",
     estado: "Aun no cubierto",
-    descripcion: "Formación de 2 horas para cada grupo de la escuela primaria (6 grupos) enfocada en desarrollo de valores y convivencia."
+    prioridad: "Media",
+    progreso: 0,
+    beneficiarios: 210,
+    imagenPrincipal: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1000",
+    galeria: [],
+    descripcion: "Formación enfocada en desarrollo de valores y convivencia para los 6 grupos de la escuela primaria."
   },
   {
     id: 5,
@@ -59,7 +81,12 @@ const necesidades = [
     cantidad: 2,
     unidad: "Horas",
     estado: "Aun no cubierto",
-    descripcion: "Formación de 2 horas para un grupo focalizado de madres y padres de familia (30 personas aprox.)."
+    prioridad: "Media",
+    progreso: 0,
+    beneficiarios: 45,
+    imagenPrincipal: "https://images.unsplash.com/photo-1490818387583-1baba5e638af?q=80&w=1000",
+    galeria: [],
+    descripcion: "Formación de 2 horas para un grupo focalizado de madres y padres de familia sobre nutrición infantil."
   },
   {
     id: 6,
@@ -71,7 +98,12 @@ const necesidades = [
     cantidad: 5,
     unidad: "Piezas",
     estado: "Aun no cubierto",
-    descripcion: "Se necesitan mesas tipo picnic pequeñas para que los estudiantes puedan alimentarse cómodamente."
+    prioridad: "Crítica",
+    progreso: 60,
+    beneficiarios: 120,
+    imagenPrincipal: "https://images.unsplash.com/photo-1519750157634-b6d493a0f77c?q=80&w=1000",
+    galeria: ["https://images.unsplash.com/photo-1544717297-fa95b9ee9623?q=80"],
+    descripcion: "Se necesitan mesas pequeñas para que los estudiantes de preescolar puedan alimentarse cómodamente."
   },
   {
     id: 7,
@@ -83,7 +115,12 @@ const necesidades = [
     cantidad: 4,
     unidad: "Piezas",
     estado: "Aun no cubierto",
-    descripcion: "Se requieren bases para instalar televisores de 55 pulgadas en los salones y mejorar los recursos audiovisuales."
+    prioridad: "Baja",
+    progreso: 25,
+    beneficiarios: 160,
+    imagenPrincipal: "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?q=80&w=1000",
+    galeria: [],
+    descripcion: "Se requieren bases para instalar televisores y mejorar los recursos audiovisuales en los salones."
   },
   {
     id: 8,
@@ -95,7 +132,12 @@ const necesidades = [
     cantidad: 10,
     unidad: "Piezas",
     estado: "Aun no cubierto",
-    descripcion: "Varios salones tienen ventanas y plafones dañados que afectan las condiciones de estudio de los alumnos."
+    prioridad: "Crítica",
+    progreso: 40,
+    beneficiarios: 300,
+    imagenPrincipal: "https://images.unsplash.com/photo-1464938701019-30113702e73a?q=80&w=1000",
+    galeria: ["https://images.unsplash.com/photo-1503387762-592dea58ef21?q=80"],
+    descripcion: "Varios salones tienen ventanas y plafones dañados que afectan la seguridad y el clima dentro del aula."
   },
   {
     id: 9,
@@ -107,7 +149,12 @@ const necesidades = [
     cantidad: 30,
     unidad: "Piezas",
     estado: "Aun no cubierto",
-    descripcion: "La escuela requiere materiales básicos de limpieza como cloro, escobas, trapeadores y recogedores."
+    prioridad: "Media",
+    progreso: 0,
+    beneficiarios: 300,
+    imagenPrincipal: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1000",
+    galeria: [],
+    descripcion: "La escuela requiere materiales básicos como cloro y escobas para mantener condiciones sanitarias óptimas."
   },
   {
     id: 10,
@@ -119,7 +166,12 @@ const necesidades = [
     cantidad: 4,
     unidad: "Horas",
     estado: "Aun no cubierto",
-    descripcion: "Formación de 4 horas para el equipo docente enfocada en herramientas para el manejo de emociones en el aula."
+    prioridad: "Alta",
+    progreso: 0,
+    beneficiarios: 15,
+    imagenPrincipal: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1000",
+    galeria: [],
+    descripcion: "Formación para el equipo docente enfocada en herramientas para el manejo de emociones y estrés en el aula."
   },
   {
     id: 11,

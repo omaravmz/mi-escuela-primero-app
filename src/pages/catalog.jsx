@@ -3,9 +3,10 @@ import Footer from '../components/footer'
 import '../styles/catalog.css'
 import necesidades from '../data/necesidades'
 import { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 function Catalog() {
-
+  
   const [busqueda, setBusqueda] = useState('');
   const [municipio, setMunicipio] = useState('');
   const [categoria, setCategoria] = useState('');
@@ -94,7 +95,9 @@ function Catalog() {
                     <h3 className="card-nombre">{item.escuela}</h3>
                     <p className="card-municipio">📍 {item.municipio}, Jalisco</p>
                     <p className="card-descripcion">{item.descripcion}</p>
-                    <button className="btn-ver">Ver proyecto →</button>
+                   <Link to={`/proyecto/${item.id}`} className="btn-ver">
+                      Ver proyecto →
+                    </Link>
                   </div>
                 </div>
               ))}
