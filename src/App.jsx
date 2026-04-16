@@ -5,6 +5,7 @@ import Form from './pages/form'
 import Catalog from './pages/catalog'
 import Admin from './pages/admin'
 import ProjectDetail from './pages/ProjectDetail'
+import ThankYou from './pages/ThankYou'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="/donar" element={<Form />} />
       <Route path="/admin" element={<Admin />} />
       <Route path="/proyecto/:id" element={<ProjectDetail />} />
+      <Route path="/gracias" element={<ThankYou />} />
     </Routes>
   )
 }

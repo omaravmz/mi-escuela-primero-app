@@ -1,20 +1,19 @@
-import { useParams, Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
+import VerificationBadge from '../components/VerificationBadge';
 import necesidades from '../data/necesidades';
 import '../styles/project-details.css';
 
 function ProjectDetail() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('detalles');
-  const [selectedImg, setSelectedImg] = useState(null);
 
   const proyecto = necesidades.find((p) => p.id === parseInt(id));
- 
-  useEffect(() => {
-    if (proyecto) setSelectedImg(proyecto.imagenPrincipal);
-  }, [proyecto]);
+
+  const [selectedImg, setSelectedImg] = useState(proyecto?.imagenPrincipal || null);
 
   if (!proyecto) {
     return (
@@ -31,6 +30,7 @@ function ProjectDetail() {
   }
 
   const getPriorityClass = (prioridad) => {
+    if (!prioridad) return 'priority-normal';
     const p = prioridad.toLowerCase();
     if (p === 'crítica') return 'priority-critical';
     if (p === 'alta') return 'priority-high';
@@ -106,18 +106,26 @@ function ProjectDetail() {
                 <p className="school-location">{proyecto.municipio}, Jalisco</p>
               </div>
             </div>
+            <div style={{ marginTop: '12px' }}>
+              <VerificationBadge />
+            </div>
 
             <div className="impact-meter">
               <div className="meter-header">
-                <span>Progreso de la causa</span>
-                <span>{proyecto.progreso}%</span>
+                <span>Progreso de cobertura de esta necesidad</span>
+                <span>{proyecto.progreso ?? 0}%</span>
               </div>
               <div className="meter-bar">
-                <div className="meter-fill" style={{ width: `${proyecto.progreso}%` }}></div>
+                <div className="meter-fill" style={{ width: `${proyecto.progreso ?? 0}%` }}></div>
               </div>
-              <p className="beneficiaries-count">
-                <strong>{proyecto.beneficiarios}</strong> alumnos recibirán este apoyo directamente.
+              <p className="meter-explanation">
+                Este porcentaje refleja cuánto de la necesidad total ha sido cubierto gracias a donaciones recibidas.
               </p>
+              {proyecto.beneficiarios && (
+                <p className="beneficiaries-count">
+                  <strong>{proyecto.beneficiarios}</strong> alumnos recibirán este apoyo directamente.
+                </p>
+              )}
             </div>
           </div>
         </section>
@@ -168,15 +176,18 @@ function ProjectDetail() {
               <h3>¿Deseas ser el impulsor?</h3>
               <p>Puedes donar el material físico, el recurso económico o tiempo de voluntariado.</p>
 
-              <div className="action-buttons"> 
-                 <Link to={`/donar`} className="btn-primary-action">
-                      Ver proyecto →
-                    </Link>
+              <div className="action-buttons">
+                <button
+                  className="btn-primary-action"
+                  onClick={() => navigate('/donar', { state: { proyecto } })}
+                >
+                  Donar a este proyecto
+                </button>
                 <button
                   className="btn-secondary-action"
                   onClick={shareOnWhatsApp}
                 >
-                  Contactar vía WhatsApp
+                  Compartir vía WhatsApp
                 </button>
               </div>
 

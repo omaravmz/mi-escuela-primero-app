@@ -1,21 +1,41 @@
 import { useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import Navbar from '../components/navbar'
 import Footer from '../components/footer'
 import '../styles/form.css'
 
+const mapCategoriaToDonationType = (proyecto) => {
+    if (!proyecto) return '';
+    const sub = (proyecto.subcategoria || '').toLowerCase();
+    if (sub.includes('formación para familias') || sub.includes('formacion para familias')) return 'formacion-familias';
+    if (sub.includes('formación para estudiantes') || sub.includes('formacion para estudiantes')) return 'formacion-estudiantes';
+    if (sub.includes('formación para docentes') || sub.includes('formacion para docentes') || sub.includes('formación a docentes')) return 'formacion-docentes';
+    if (sub.includes('psicol')) return 'psicologia';
+    if (sub.includes('tecnol')) return 'material-tecnologico';
+    if (sub.includes('papeler')) return 'material-papeleria';
+    if (sub.includes('literari')) return 'material-literario';
+    if (sub.includes('ed. física') || sub.includes('educación física')) return 'material-ed-fisica';
+    if (sub.includes('mobiliario')) return 'mobiliario';
+    if (sub.includes('infraestructura') || sub.includes('construcción')) return 'material-infraestructura';
+    return '';
+};
+
 function Form() {
+
+    const location = useLocation();
+    const navigate = useNavigate();
+    const proyectoContext = location.state?.proyecto || null;
 
     // ── ESTADOS PARA CONTROLAR LA VISIBILIDAD DE CAMPOS ──
     const [entityType, setEntityType] = useState('');
     const showInstanceGroup = entityType !== '' && entityType !== 'ninguna';
 
     // El tipo de donativo seleccionado determina qué campos de detalles mostrar
-    const [donationType, setDonationType] = useState('');
+    const [donationType, setDonationType] = useState(mapCategoriaToDonationType(proyectoContext));
     const showDetailsSection = donationType !== '';
 
     // Grupos de tipos para saber qué campos mostrar en detalles
     const isFormacion = ['formacion-familias', 'formacion-estudiantes', 'formacion-docentes'].includes(donationType);
-    const isAtencion = donationType === 'psicologia';
     const isMaterial = ['material-tecnologico', 'material-papeleria', 'material-literario', 'material-ed-fisica', 'material-infraestructura', 'mobiliario'].includes(donationType);
     const isOther = !isFormacion && !isMaterial && donationType !== '';
 
@@ -25,7 +45,16 @@ function Form() {
     // ── MANEJO DEL ENVÍO ─────────────────────────────────────────────
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert('¡Gracias por ser parte del cambio! Nos pondremos en contacto contigo en menos de 48 horas.');
+        const formData = new FormData(e.target);
+        navigate('/gracias', {
+            state: {
+                summary: {
+                    nombre: formData.get('full-name'),
+                    escuela: formData.get('destination-school') || proyectoContext?.escuela,
+                    tipo: formData.get('donation-type'),
+                }
+            }
+        });
     };
 
     return (
@@ -41,6 +70,18 @@ function Form() {
                         Completa el formulario y en menos de 48 horas nos pondremos en contacto contigo.
                     </p>
                 </section>
+
+                {proyectoContext && (
+                    <div className="donation-context-banner">
+                        <div className="banner-inner">
+                            <span className="banner-icon">🎯</span>
+                            <div>
+                                <strong>Donando para: {proyectoContext.propuesta}</strong>
+                                <p>{proyectoContext.escuela} — {proyectoContext.municipio}, Jalisco</p>
+                            </div>
+                        </div>
+                    </div>
+                )}
 
                 <section className="form-container">
                     <form className="form" onSubmit={handleSubmit} noValidate>
@@ -134,7 +175,7 @@ function Form() {
 
                                 <div className="form-group">
                                     <label htmlFor="destination-school">Escuela(s) destino *</label>
-                                    <input type="text" id="destination-school" name="destination-school" placeholder="Nombre de la escuela" required />
+                                    <input type="text" id="destination-school" name="destination-school" placeholder="Nombre de la escuela" defaultValue={proyectoContext?.escuela || ''} required />
                                 </div>
 
                                 {isFormacion && (
@@ -224,7 +265,7 @@ function Form() {
 
                         <div className="form-submit">
                             <button type="submit" className="btn-send">
-                                Enviar Aplicación
+                                Enviar mi apoyo
                             </button>
                         </div>
 

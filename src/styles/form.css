@@ -4,6 +4,39 @@
     padding-bottom: 60px;
 }
 
+.donation-context-banner {
+    background: var(--verde-claro);
+    border-left: 4px solid var(--verde);
+    padding: 1rem 1.5rem;
+    max-width: 760px;
+    margin: 24px auto 0;
+    border-radius: 8px;
+}
+
+.banner-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.banner-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+.banner-inner strong {
+    display: block;
+    color: var(--verde-oscuro);
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+}
+
+.banner-inner p {
+    margin: 0;
+    font-size: 0.82rem;
+    color: var(--gris-texto);
+}
+
 .form-hero {
     background: var(--verde);
     padding: 50px;

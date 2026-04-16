@@ -1,5 +1,6 @@
 import Navbar from '../components/navbar'
 import Footer from '../components/footer'
+import VerificationBadge from '../components/VerificationBadge'
 import '../styles/catalog.css'
 import necesidades from '../data/necesidades'
 import { useState } from 'react'
@@ -10,20 +11,25 @@ function Catalog() {
   const [busqueda, setBusqueda] = useState('');
   const [municipio, setMunicipio] = useState('');
   const [categoria, setCategoria] = useState('');
+  const [subcategoria, setSubcategoria] = useState('');
+
+  const subcategorias = categoria
+    ? [...new Set(necesidades.filter(n => n.categoria === categoria).map(n => n.subcategoria))]
+    : [];
 
   const resultados = necesidades.filter((item) => {
-
     const coincideBusqueda = item.escuela.toLowerCase().includes(busqueda.toLowerCase());
     const coincideMunicipio = municipio === '' || item.municipio === municipio;
     const coincideCategoria = categoria === '' || item.categoria === categoria;
-
-    return coincideBusqueda && coincideMunicipio && coincideCategoria;
+    const coincideSubcategoria = subcategoria === '' || item.subcategoria === subcategoria;
+    return coincideBusqueda && coincideMunicipio && coincideCategoria && coincideSubcategoria;
   })
 
   const limpiarFiltros = () => {
     setBusqueda('');
     setMunicipio('');
     setCategoria('');
+    setSubcategoria('');
   }
 
   return (
@@ -33,10 +39,13 @@ function Catalog() {
       <main className="catalog-page">
 
         <section className="catalog-hero">
-          <h1 className="catalog-titulo">Escuelas que necesitan tu apoyo</h1>
+          <h1 className="catalog-titulo">Escuelas que esperan tu apoyo</h1>
           <p className="catalog-subtitulo">
             Explora los proyectos activos y encuentra una causa que te mueva a actuar.
           </p>
+          <div style={{ marginTop: '16px' }}>
+            <VerificationBadge />
+          </div>
         </section>
 
         <section className="filtros-bar">
@@ -60,7 +69,7 @@ function Catalog() {
 
             <div className="filtro-grupo">
               <label htmlFor="categoria">Categoría</label>
-              <select id="categoria" value={categoria} onChange={(e) => setCategoria(e.target.value)}>
+              <select id="categoria" value={categoria} onChange={(e) => { setCategoria(e.target.value); setSubcategoria(''); }}>
                 <option value="">Todas</option>
                 <option value="Material">Material</option>
                 <option value="Formación">Formación</option>
@@ -68,6 +77,18 @@ function Catalog() {
                 <option value="Salud">Salud</option>
               </select>
             </div>
+
+            {categoria && subcategorias.length > 0 && (
+              <div className="filtro-grupo">
+                <label htmlFor="subcategoria">Subcategoría</label>
+                <select id="subcategoria" value={subcategoria} onChange={(e) => setSubcategoria(e.target.value)}>
+                  <option value="">Todas</option>
+                  {subcategorias.map(sub => (
+                    <option key={sub} value={sub}>{sub}</option>
+                  ))}
+                </select>
+              </div>
+            )}
 
             <button className="btn-limpiar" onClick={limpiarFiltros}>
               Limpiar filtros
@@ -106,8 +127,8 @@ function Catalog() {
           ) : (
 
             <div className="sin-resultados">
-              <p>No encontramos proyectos con esos filtros.</p>
-              <p>Intenta con otros criterios o limpia los filtros.</p>
+              <p>No encontramos proyectos con esos criterios, pero hay muchas formas de ayudar.</p>
+              <p>Prueba ajustando los filtros o <Link to="/donar">realiza una donación general</Link>.</p>
             </div>
           )}
 

@@ -24,7 +24,6 @@ function Navbar() {
       <ul className={`nav-links ${menuAbierto ? 'nav-abierto' : ''}`}>
         <li><Link to="/" onClick={() => setMenuAbierto(false)}>Inicio</Link></li>
         <li><Link to="/catalogo" onClick={() => setMenuAbierto(false)}>Catálogo</Link></li>
-        <li><Link to="/admin" onClick={() => setMenuAbierto(false)}>Admin</Link></li>
         <li>
           <Link to="/donar" onClick={() => setMenuAbierto(false)}>
             <button id="btn-dona">Dona ahora</button>
