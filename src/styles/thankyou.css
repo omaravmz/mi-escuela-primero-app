@@ -11,8 +11,9 @@
 }
 
 .thankyou-icon {
-    font-size: 4rem;
+    font-size: 3.5rem;
     margin-bottom: 16px;
+    color: var(--gris-claro);
 }
 
 .thankyou-title {
@@ -144,3 +145,4 @@
     .thankyou-summary { margin: 24px 16px 0; }
     .thankyou-actions { flex-direction: column; align-items: center; }
 }
+

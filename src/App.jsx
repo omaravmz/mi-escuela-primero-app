@@ -6,6 +6,7 @@ import Catalog from './pages/catalog'
 import Admin from './pages/admin'
 import ProjectDetail from './pages/ProjectDetail'
 import ThankYou from './pages/ThankYou'
+import Faq from './pages/faq'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route path="/admin" element={<Admin />} />
       <Route path="/proyecto/:id" element={<ProjectDetail />} />
       <Route path="/gracias" element={<ThankYou />} />
+      <Route path="/faq" element={<Faq />} />
     </Routes>
   )
 }

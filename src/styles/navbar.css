@@ -1,123 +1,155 @@
-nav {
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 64px;
+.app-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  background: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  transition: box-shadow 0.25s ease;
 }
 
-nav a {
-    text-decoration: none;
+.nav-scrolled {
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
 }
 
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
 .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
 }
 
 .nav-logo img {
-    height: 60px;
-    width: auto;
-    align-items: center;
+  height: 46px;
+  width: auto;
 }
 
-#nav-logo {
-    font-size: 18px;
-    font-weight: 800;
-    color: var(--naranja);
+.nav-brand-name {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--naranja);
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-    align-items: center;
+/* Mobile hamburger */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--gris-texto);
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 1.4rem;
+  line-height: 1;
+  transition: background 0.15s, color 0.15s;
 }
 
-nav ul li a {
-    color: var(--gris-texto);
-    font-weight: 600;
-    transition: color 0.3s ease;
-    font-size: 14px;
+.nav-toggle:hover {
+  background: var(--gris-claro);
+  color: var(--verde);
 }
 
-nav ul li a:hover {
-    color: var(--verde);
+/* Nav links list */
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
 }
 
-#btn-dona {
-    background: var(--naranja);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 24px;
-    font-family: var(--font);
-    font-weight: 700;
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: background .2s, transform .15s;
+.nav-link-item {
+  display: block;
+  text-decoration: none;
+  color: var(--gris-texto);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: color 0.2s, background 0.2s;
 }
 
-#btn-dona:hover {
-    background: #d45a0f;
-    transform: translateY(-1px);
+.nav-link-item:hover {
+  color: var(--verde);
+  background: var(--verde-claro);
 }
 
+.nav-link-item.active {
+  color: var(--verde);
+  background: var(--verde-claro);
+}
 
+/* CTA button */
+.btn-dona {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--naranja);
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 24px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  transition: background 0.2s, transform 0.15s;
+  margin-left: 8px;
+}
+
+.btn-dona:hover {
+  background: #d45a0f;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* ── Mobile ── */
 @media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    nav {
-        position: relative;
-        flex-wrap: wrap;
-        padding-bottom: 70px;
-    }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 68px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    background: #fff;
+    padding: 12px 20px 20px;
+    border-top: 2px solid var(--verde);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    gap: 2px;
+  }
 
-    .nav-display {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: transparent;
-        border: none;
-        font-size: 1.5rem;
-        cursor: pointer;
-        color: var(--gris-texto);
-        padding: 4px 8px;
-        z-index: 100;
-    }
+  .nav-links.nav-open {
+    display: flex;
+  }
 
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-        background: white;
-        padding: 16px 24px;
-        gap: 16px;
-        border-top: 2px solid var(--verde);
-        box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-    }
+  .nav-link-item {
+    padding: 12px 16px;
+    font-size: 1rem;
+    border-radius: 8px;
+  }
 
-    .nav-links.nav-abierto {
-        display: flex;
-    }
-
-    .nav-links li {
-        width: 100%;
-    }
-
-    .nav-links li a {
-        font-size: 1rem;
-    }
-
-    #btn-dona {
-        width: 100%;
-        text-align: center;
-    }
-}
-
-@media (min-width: 769px) {
-    .nav-display {
-        display: none;
-    }
+  .btn-dona {
+    margin: 8px 0 0;
+    justify-content: center;
+    padding: 12px 20px;
+    border-radius: 10px;
+  }
 }

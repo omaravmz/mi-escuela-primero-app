@@ -13,7 +13,7 @@ function ThankYou() {
             <main className="thankyou-page">
 
                 <section className="thankyou-hero">
-                    <div className="thankyou-icon">💚</div>
+                    <div className="thankyou-icon bi bi-heart-fill me-1"></div>
                     <h1 className="thankyou-title">¡Gracias por ser parte del cambio!</h1>
                     <p className="thankyou-subtitle">
                         Tu generosidad transforma la educación en Jalisco. Nos pondremos en contacto contigo

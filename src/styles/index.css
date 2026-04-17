@@ -21,6 +21,10 @@
     --font: 'Montserrat', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--font);
     background-color: var(--gris-claro);
